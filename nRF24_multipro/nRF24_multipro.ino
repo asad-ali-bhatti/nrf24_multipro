@@ -28,6 +28,11 @@
  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <nRF24L01.h>
+#include <printf.h>
+#include <RF24.h>
+#include <RF24_config.h>
+
 #include <util/atomic.h>
 #include <EEPROM.h>
 #include "iface_nrf24l01.h"
@@ -126,7 +131,7 @@ struct {
 } telemetry_data;
 
 uint8_t transmitterID[4];
-uint8_t current_protocol;
+uint8_t current_protocol=PROTO_E010;
 static volatile bool ppm_ok = false;
 uint8_t packet[32];
 static bool reset=true;
